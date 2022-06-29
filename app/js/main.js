@@ -1,9 +1,11 @@
 // ----------- jQuery functions -----------
 $(function () {
   $("#js-benefitSlider").slick({
+    infinite: true,
     centerMode: true,
     slidesToShow: 5,
     centerPadding: "150px",
+    arrows: true,
   });
 });
 

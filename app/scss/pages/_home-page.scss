@@ -2,6 +2,44 @@
   padding-top: 270px;
   padding-bottom: 490px;
 
+  // background-image: url(../img/bg-graident-01.jpg);
+  // background-repeat: no-repeat;
+  // background-position: left top;
+  // background-size: cover;
+  // background-attachment: fixed;
+
+  background-color: $black;
+
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    left: -30%;
+    border-radius: 50%;
+    width: 1600px;
+    height: 1600px;
+    background-image: url(../img/test.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 6%;
+    right: -20%;
+
+    width: 1662px;
+    height: 970px;
+
+    background-image: url(../img/hero-decor-elem.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   &__container {
     text-align: center;
     color: $white;
@@ -11,18 +49,20 @@
     font-size: 90px;
     line-height: 135px;
     font-weight: 800;
+    color: $white;
+
     text-align: center;
     margin-bottom: 10px;
-    color: $white;
   }
 
   &__descr {
-    max-width: 74%;
-    margin: 0 auto;
     font-size: 24px;
     line-height: 48px;
     font-weight: 700;
-    text-align: center;
     color: $white;
+    text-align: center;
+
+    max-width: 74%;
+    margin: 0 auto;
   }
 }
