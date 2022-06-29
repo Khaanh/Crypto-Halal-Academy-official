@@ -1,0 +1,105 @@
+/* styles */
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	overflow-x: hidden;
+
+
+
+	background-color: #ccc;
+}
+
+.header,
+.footer {
+	flex: 0 0 auto;
+}
+
+.main-page {
+	flex: 1 0 auto;
+	overflow: hidden;
+	padding-top: 100px;
+}
+
+.container {
+	max-width: 1460px;
+	width: 100%;
+	padding: 0 10px;
+	margin: 0 auto;
+	color: $txt-color;
+}
+
+// Btn up Styles
+.btn-scroll-up {
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	z-index: 777;
+	cursor: pointer;
+	height: 34px;
+	width: 34px;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transform: translateY(100px);
+
+	transition: opacity 0.5s ease,
+		visibility 0.5s ease,
+		transform 0.5s ease;
+
+	>svg {
+		width: 100%;
+		height: 100%;
+		transform: rotate(90deg);
+		transform-origin: center;
+		transition: transform 0.1s linear;
+	}
+
+	&:hover {
+		svg {
+			transform: rotate(270deg);
+		}
+	}
+
+	&.is-visible {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		transform: translateY(-50px);
+	}
+}
+
+
+.accent-txt {
+	color: $accent;
+}
+
+.section-title {
+	font-family: $main-font;
+	color: $white;
+	font-weight: 800;
+	font-size: 48px;
+	line-height: 52px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+//Hide elem 
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	bottom: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+// No scrolling
+.js-no-scroll {
+	overflow: hidden;
+}

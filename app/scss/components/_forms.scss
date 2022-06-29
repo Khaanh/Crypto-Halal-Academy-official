@@ -1,0 +1,34 @@
+.form {
+
+  &__control {
+    font-family: $main-font;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    color: $txt-color;
+    height: 50px;
+    background-color: $white;
+    border: 1px solid #e0e6ed;
+    border-radius: 5px;
+    text-align: center;
+    padding: 14px 20px;
+
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    margin: 0;
+    transition: 0.3s ease;
+
+    &:focus {
+      border: 1px solid gold;
+    }
+
+    @include placeholder {
+      opacity: 1;
+      color: $text;
+    }
+  }
+}
