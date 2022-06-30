@@ -4,8 +4,19 @@ $(function () {
     infinite: true,
     centerMode: true,
     slidesToShow: 5,
+    slidesToScroll: 5,
     centerPadding: "150px",
     arrows: true,
+  });
+
+  $("#js-feedbackSlider").slick({
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerPadding: "0px",
+    arrows: true,
+    dots: true,
   });
 });
 
@@ -62,3 +73,52 @@ function headerScroll() {
   });
 }
 headerScroll();
+
+// Audio player visualization
+let btnPlay = document.querySelectorAll(".js-btnPlay");
+let audioElem = document.querySelectorAll(".js-audio");
+let currentTimeElem = document.querySelectorAll(".js-currentTime");
+let isPaused = false;
+// let audio;
+
+function controlAudio() {
+  btnPlay.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      console.log(e);
+      let audio = e.target.parentElement.nextElementSibling;
+      pauseAllAudio();
+
+      !isPaused ? playAudio(audio) : pauseAudio(audio);
+
+      console.log(audio.currentTime);
+    });
+  });
+}
+
+controlAudio();
+
+function pauseAllAudio() {
+  audioElem.forEach((audio) => {
+    audio.pause();
+  });
+}
+
+function playAudio(elem) {
+  elem.play();
+  console.log("play");
+  isPaused = true;
+}
+
+function pauseAudio(elem) {
+  elem.pause();
+  console.log("pause");
+  isPaused = false;
+}
+
+// audioElem.addEventListener("timeupdate", function (ev) {
+//   console.log("Current time", this.currentTime);
+// });
+
+// currentTimeElem.addEventListener("click", function () {
+//   alert("asdas");
+// });

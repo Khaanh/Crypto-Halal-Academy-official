@@ -1,6 +1,9 @@
-.perosnal-section {
+.personals-section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+
   &__title {
-    margin-bottom: 160px;
+    margin-bottom: 120px;
   }
 }
 
@@ -48,5 +51,8 @@
     font-weight: 600;
     color: $white;
     text-align: center;
+    max-width: 80%;
+    width: 100%;
+    margin: 0 auto;
   }
 }
