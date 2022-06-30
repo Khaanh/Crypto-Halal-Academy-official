@@ -1,0 +1,52 @@
+.perosnal-section {
+  &__title {
+    margin-bottom: 160px;
+  }
+}
+
+.personal-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__items {
+    max-width: 400px;
+    margin: 0 15px;
+    text-align: center;
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 372px;
+    background-image: url(../img/circle-decor-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 16px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__descr {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 600;
+    color: $white;
+    text-align: center;
+  }
+}
