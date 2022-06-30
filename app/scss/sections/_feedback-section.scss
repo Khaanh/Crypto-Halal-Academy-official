@@ -49,6 +49,54 @@
     div {}
   }
 
+  .slick-dots {
+    li {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      button {
+        background: $white;
+        background: rgba(255, 255, 255, 0.3);
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 0;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $accent;
+          opacity: 0;
+          transition: opacity 0.1s linear;
+        }
+      }
+
+      &:hover {
+        button {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.slick-active {
+        button {
+          opacity: 1;
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
   &__items {}
 
   &__holder {

@@ -122,3 +122,11 @@ function pauseAudio(elem) {
 // currentTimeElem.addEventListener("click", function () {
 //   alert("asdas");
 // });
+
+// Accordion functional
+let accBtn = document.querySelectorAll(".js-accToggle");
+accBtn.forEach((item) => {
+  item.addEventListener("click", () => {
+    item.parentElement.classList.toggle("is-open");
+  });
+});
