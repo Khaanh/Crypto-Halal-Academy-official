@@ -1,12 +1,5 @@
 .team-section {
-  padding-bottom: 32px;
-  padding-top: 90px;
-  background: url(../img/bg-team.svg),
-    linear-gradient(180deg, #025360 0%, #016A6A 100%);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-color: #016A6A;
+
 
 
   @include max-screen(1200px) {
@@ -39,8 +32,8 @@
     margin: 0 auto 32px;
     flex-basis: 256px;
     transition-property: transform, opacity;
-    opacity: 0;
-    transform: translateY(100%);
+    // opacity: 0;
+    // transform: translateY(100%);
     transition-timing-function: ease-in-out;
 
     @include max-screen(1024px) {
@@ -89,19 +82,31 @@
 
   &__thumb {
     display: block;
-    width: 252px;
-    height: 252px;
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
-    overflow: hidden;
+    // overflow: hidden;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     margin: 0 auto 16px;
     position: relative;
+
+    // &:after {
+    //   content: '';
+    //   position: absolute;
+    //   width: 272px;
+    //   height: 272px;
+    // background-image: url(../img/team-decor-elem-01.svg);
+    // background-repeat: no-repeat;
+    // background-size: contain;
+    // }
 
     @include max-screen(460px) {
       margin: 0 auto 10px;
     }
 
     img {
+      width: 100%;
+      height: 100%;
       transition: 0.2s ease-out;
       transform: scale(1);
       transform-origin: center;
