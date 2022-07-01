@@ -1,8 +1,23 @@
 .faq-section {
   padding-top: 120px;
   padding-bottom: 120px;
+  position: relative;
 
-  &__title {}
+  &:after {
+    content: '';
+    position: absolute;
+    top: 300px;
+    right: -200px;
+    width: 440px;
+    height: 821px;
+    background-image: url(../img/decor-faq-elem.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    margin-bottom: 120px;
+  }
 }
 
 // Accrodion elem style
@@ -34,7 +49,7 @@
 
 
         &:after {
-          transform: translate(0, -50%) rotate(45deg);
+          transform: translate(0, -50%) scale(-1);
         }
       }
     }
@@ -80,17 +95,13 @@
     &:after {
       content: '';
       position: absolute;
-      right: 20px;
+      background-image: url(../img/icon-arrow.svg);
+      right: 40px;
       top: 50%;
-      transform: translate(0, -50%) rotate(-45deg);
-      width: 12px;
-      height: 12px;
+      transform: translate(0, -50%) scale(1);
+      width: 56px;
+      height: 56px;
       opacity: 1;
-      border-left-color: transparent;
-      border-top-color: transparent;
-      border-right-color: #2c3e50;
-      border-bottom-color: #2c3e50;
-      border-style: solid;
       transform-origin: center;
       transition: all 0.3s;
       transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
@@ -109,7 +120,9 @@
     border-width: 1px;
     border-style: solid;
     border-color: $transp;
+    font-weight: 600;
     font-size: 16px;
+    line-height: 24px;
     border-radius: 0px 0px 4px 4px;
     padding-top: 0;
     padding-bottom: 0;
