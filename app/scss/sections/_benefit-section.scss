@@ -15,8 +15,6 @@
   list-style: none;
 
   &__items {
-    // max-width: 300px;
-    // margin: 0 8px;
     background: rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 10px rgba(6, 255, 121, 0.3);
     backdrop-filter: blur(10px);
@@ -61,19 +59,27 @@
     transition: all 0.3s ease-in-out;
     transform-origin: center;
 
-    // transform: scaleY();
-
-
     .slider-list__items {
       transition: all 0.1s ease-in-out;
       height: 486px;
       transform-origin: center;
-      // transform: scale(1.5);
     }
   }
 
   .slick-track {
     display: flex;
     align-items: center;
+  }
+
+  .slick-arrow {
+    top: 90%;
+  }
+
+  .slick-prev {
+    left: 10%;
+  }
+
+  .slick-next {
+    right: 10%;
   }
 }

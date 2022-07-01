@@ -7,6 +7,7 @@ $(function () {
     slidesToScroll: 5,
     centerPadding: "150px",
     arrows: true,
+    dots: false,
   });
 
   $("#js-feedbackSlider").slick({

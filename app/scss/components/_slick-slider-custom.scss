@@ -1,0 +1,95 @@
+  .slick-dots {
+    li {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      button {
+        background: $white;
+        background: rgba(255, 255, 255, 0.3);
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 0;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: $accent;
+          opacity: 0;
+          transition: opacity 0.1s linear;
+        }
+      }
+
+      &:hover {
+        button {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.slick-active {
+        button {
+          opacity: 1;
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  .slick-arrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px rgba(6, 255, 121, 0.3);
+    border: 1px solid $transp;
+    transition: all 0.2s linear;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 56px;
+      opacity: 1;
+      transform: scale(1);
+      background-image: url(../img/icon-arrow.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: all 0.2s linear;
+    }
+
+    &:hover {
+      border: 1px solid $accent;
+      box-shadow: 0px 0px 0px rgba(6, 255, 121, 0.3);
+    }
+
+    &:active {
+      &:before {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  .slick-prev {
+    left: -100px;
+    transform: rotate(-90deg);
+  }
+
+  .slick-next {
+    right: -100px;
+    transform: rotate(90deg);
+  }

@@ -4,13 +4,15 @@
 @import 'helpers/_reset';
 @import 'helpers/_base';
 
+@import 'libs/_slick';
+@import 'libs/_slick-theme';
+
 @import 'components/_buttons';
 @import 'components/_forms';
 @import 'components/_header';
 @import 'components/_footer';
+@import 'components/_slick-slider-custom';
 
-@import 'libs/_slick';
-@import 'libs/_slick-theme';
 
 @import 'pages/_home-page';
 
