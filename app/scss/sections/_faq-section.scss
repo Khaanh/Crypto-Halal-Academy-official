@@ -1,7 +1,18 @@
 .faq-section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding: 120px 0;
   position: relative;
+
+  @include max-screen(1460px) {
+    padding: 100px 0;
+  }
+
+  @include max-screen(1366px) {
+    padding: 80px 0;
+  }
+
+  @include max-screen(1200px) {
+    padding: 60px 0;
+  }
 
   &:after {
     content: '';
@@ -17,6 +28,22 @@
 
   &__title {
     margin-bottom: 120px;
+
+    @include max-screen(1460px) {
+      margin-bottom: 100px;
+    }
+
+    @include max-screen(1366px) {
+      margin-bottom: 80px;
+    }
+
+    @include max-screen(1200px) {
+      margin-bottom: 60px;
+    }
+
+    @include max-screen(480px) {
+      margin-bottom: 48px;
+    }
   }
 }
 

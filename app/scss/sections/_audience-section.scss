@@ -1,10 +1,21 @@
 .audience-section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding: 120px 0;
   position: relative;
 
-  &__container {
-    // position: relative;
+  @include max-screen(1460px) {
+    padding: 100px 0;
+  }
+
+  @include max-screen(1366px) {
+    padding: 80px 0;
+  }
+
+  @include max-screen(1200px) {
+    padding: 60px 0;
+  }
+
+  @include max-screen(1024px) {
+    padding: 40px 0;
   }
 
   &__icon {
@@ -15,6 +26,10 @@
   &__title {
     text-align: right;
     margin-bottom: 68px;
+
+    @include max-screen(480px) {
+      margin-bottom: 48px;
+    }
   }
 
   .icon-planet {

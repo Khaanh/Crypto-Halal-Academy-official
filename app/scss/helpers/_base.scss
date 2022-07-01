@@ -82,6 +82,26 @@
 	line-height: 52px;
 	text-align: center;
 	text-transform: uppercase;
+
+	@include max-screen(1366px) {
+		font-size: 44px;
+		line-height: 48px;
+	}
+
+	@include max-screen(1200px) {
+		font-size: 40px;
+		line-height: 44px;
+	}
+
+	@include max-screen(1024px) {
+		font-size: 36px;
+		line-height: 40px;
+	}
+
+	@include max-screen(480px) {
+		font-size: 24px;
+		line-height: 26px;
+	}
 }
 
 //Hide elem 
