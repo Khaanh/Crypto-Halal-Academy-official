@@ -103,12 +103,31 @@
     @include max-screen(1024px) {
       max-width: 90%;
       line-height: 40px;
+      margin: 0 auto 32px;
     }
 
     @include max-screen(768px) {
       max-width: 98%;
       font-size: 20px;
       line-height: 30px;
+    }
+
+    p {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+    max-width: 255px;
+    margin: 0 auto;
+    background-color: $accent;
+    color: $black;
+
+    @include max-screen(1200px) {
+      display: block;
     }
   }
 }

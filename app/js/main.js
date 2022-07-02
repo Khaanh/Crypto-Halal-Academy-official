@@ -4,7 +4,7 @@ $(function () {
     infinite: true,
     centerMode: true,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     centerPadding: "150px",
     arrows: true,
     dots: false,
@@ -18,6 +18,31 @@ $(function () {
     centerPadding: "0px",
     arrows: true,
     dots: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          infinite: true,
+          centerMode: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "60px",
+          infinite: true,
+          dots: true,
+        },
+      },
+    ],
   });
 });
 
@@ -131,3 +156,38 @@ accBtn.forEach((item) => {
     item.parentElement.classList.toggle("is-open");
   });
 });
+
+//Mobile menu
+window.addEventListener("resize", dynamicWidthCheck);
+document.addEventListener("DOMContentLoaded", dynamicWidthCheck);
+
+let btnMenu = document.querySelector("#js-burger");
+let navMenu = document.querySelector("#js-nav");
+let windowWidth = window.innerWidth;
+
+// Open/close menu
+btnMenu.addEventListener("click", () => {
+  navMenu.classList.add("is-open");
+  document.body.classList.add("js-no-scroll");
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id == "js-btnClose") {
+    navMenu.classList.remove("is-open");
+    document.body.classList.remove("js-no-scroll");
+  }
+});
+
+let btnClose = document.createElement("button");
+btnClose.classList.add("btn-close");
+btnClose.setAttribute("id", "js-btnClose");
+
+let logoMini = document.createElement("i");
+logoMini.classList.add("logo-mini");
+
+function dynamicWidthCheck() {
+  if (windowWidth < 1024) {
+    navMenu.appendChild(logoMini);
+    navMenu.appendChild(btnClose);
+  }
+}

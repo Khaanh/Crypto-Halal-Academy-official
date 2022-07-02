@@ -71,8 +71,8 @@
       padding: 0 5px;
     }
 
-    @include max-screen(460px) {
-      margin: 0 auto 24px;
+    @include max-screen(768px) {
+      margin: 0 auto 56px;
     }
 
     &:first-child {

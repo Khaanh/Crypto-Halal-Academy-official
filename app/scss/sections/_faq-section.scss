@@ -110,6 +110,14 @@
     border-radius: 20px;
     transition: all 0.2 linear;
 
+    @include max-screen(1024px) {
+      padding: 30px 28px;
+    }
+
+    @include max-screen(768px) {
+      padding: 24px 20px;
+    }
+
     &:hover {
       // border-color: #495fdf;
       // background-color: #f3f7ff;
@@ -132,6 +140,10 @@
       transform-origin: center;
       transition: all 0.3s;
       transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+
+      @include max-screen(1024px) {
+        right: 0;
+      }
     }
   }
 
@@ -141,6 +153,13 @@
     line-height: 24px;
     font-weight: 700;
     color: $white;
+    display: inline-block;
+
+    @include max-screen(1024px) {
+      font-size: 14px;
+      line-height: 20px;
+      padding-right: 32px;
+    }
   }
 
   &__ctn {
@@ -169,6 +188,18 @@
       padding-bottom 0.1s ease-in, border-color 0.1s linear,
       background-color 0.3s linear,
       opacity 0.1s linear;
+
+    @include max-screen(1024px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    @include max-screen(768px) {
+      font-size: 14px;
+      line-height: 22px;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
 
     p {
       padding-top: 20px;

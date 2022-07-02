@@ -7,6 +7,22 @@
   background-size: cover;
   background-attachment: fixed;
 
+  @include max-screen(1460px) {
+    padding: 100px;
+  }
+
+  @include max-screen(1366px) {
+    padding: 80px;
+  }
+
+  @include max-screen(1200px) {
+    padding: 60px;
+  }
+
+  @include max-screen(1024px) {
+    padding: 40px;
+  }
+
   &__container {}
 
   &__title {
