@@ -42,6 +42,18 @@ $(function () {
           dots: true,
         },
       },
+      {
+        breakpoint: 480,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "30px",
+          infinite: true,
+          dots: true,
+        },
+      },
     ],
   });
 });

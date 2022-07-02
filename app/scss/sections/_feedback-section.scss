@@ -17,6 +17,10 @@
     padding: 40px 0;
   }
 
+  @include max-screen(992px) {
+    margin-bottom: 70px;
+  }
+
   &__title {
     margin-bottom: 8px;
   }
@@ -101,6 +105,33 @@
 
   .slick-active {
     opacity: 1;
+  }
+
+  .slick-arrow {
+    @include max-screen(1024px) {
+      top: calc(100% + 44px);
+    }
+  }
+
+  .slick-next {
+    @include max-screen(1024px) {
+      right: 250px;
+    }
+
+    @include max-screen(768px) {
+      right: 10%;
+
+    }
+  }
+
+  .slick-prev {
+    @include max-screen(1024px) {
+      left: 250px;
+    }
+
+    @include max-screen(768px) {
+      left: 10%;
+    }
   }
 
   &__items {}

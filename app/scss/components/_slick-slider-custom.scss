@@ -5,6 +5,11 @@
       border-radius: 50%;
       overflow: hidden;
 
+      @include max-screen(1024px) {
+        height: 8px;
+        width: 8px;
+      }
+
       button {
         background: $white;
         background: rgba(255, 255, 255, 0.3);
