@@ -2,19 +2,34 @@
   padding: 120px 0;
   position: relative;
 
-  @include max-screen(1460px) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -12%;
+    left: -32%;
+    opacity: 0.6;
+    border-radius: 50%;
+    width: 1600px;
+    height: 1600px;
+    background-image: url(../img/noise-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  @include max-screen(1536px) {
     padding: 100px 0;
   }
 
-  @include max-screen(1366px) {
+  @include max-screen(1460px) {
     padding: 80px 0;
   }
 
-  @include max-screen(1200px) {
+  @include max-screen(1366px) {
     padding: 60px 0;
   }
 
-  @include max-screen(1024px) {
+  @include max-screen(1200px) {
     padding: 40px 0;
   }
 
@@ -40,9 +55,16 @@
     position: absolute;
     top: 10%;
     right: 45%;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
 
     @include max-screen(1024px) {
       display: none;
+    }
+
+    &.js-animation {
+      transform: scale(1);
     }
   }
 }
@@ -55,6 +77,8 @@
   align-items: stretch;
   max-width: 900px;
   margin-left: auto;
+  opacity: 0;
+  transition: opacity 0.5s linear;
 
   @include max-screen(1024px) {
     margin: 0 auto;
@@ -77,6 +101,13 @@
     box-shadow: 0px 0px 10px rgba(6, 255, 121, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 20px;
+
+
+    opacity: 0;
+    transform: translateY(100%);
+    transition-property: opacity,
+      transform;
+    transition-timing-function: ease-out;
 
     @include max-screen(1024px) {
       max-width: calc(50% - 16px);
@@ -102,6 +133,39 @@
     @include max-screen(768px) {
       font-size: 16px;
       line-height: 18px;
+    }
+  }
+
+  &.js-animation {
+    opacity: 1;
+
+    .audience-list__items {
+      opacity: 1;
+      transform: translateY(0);
+
+      &:first-child {
+        transition-duration: 0.2s;
+      }
+
+      &:nth-child(2) {
+        transition-duration: 0.2s;
+      }
+
+      &:nth-child(3) {
+        transition-duration: 0.4s;
+      }
+
+      &:nth-child(4) {
+        transition-duration: 0.6s;
+      }
+
+      &:nth-child(5) {
+        transition-duration: 0.6s;
+      }
+
+      &:last-child {
+        transition-duration: 0.6s;
+      }
     }
   }
 }

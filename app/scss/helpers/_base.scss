@@ -43,9 +43,22 @@
 	pointer-events: none;
 	transform: translateY(100px);
 
-	transition: opacity 0.5s ease,
-		visibility 0.5s ease,
-		transform 0.5s ease;
+	transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+
+
+	&:after {
+		content: '';
+		position: absolute;
+		height: 56px;
+		width: 56px;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border: 1px solid $accent;
+		opacity: 0;
+		transition: opacity 0.2s ease-in;
+	}
 
 	>svg {
 		width: 100%;
@@ -53,11 +66,16 @@
 		transform: rotate(90deg);
 		transform-origin: center;
 		transition: transform 0.1s linear;
+		fill: $accent;
 	}
 
 	&:hover {
 		svg {
 			transform: rotate(270deg);
+		}
+
+		&:after {
+			opacity: 1;
 		}
 	}
 
@@ -82,6 +100,8 @@
 	line-height: 52px;
 	text-align: center;
 	text-transform: uppercase;
+	position: relative;
+	z-index: 3;
 
 	@include max-screen(1366px) {
 		font-size: 44px;

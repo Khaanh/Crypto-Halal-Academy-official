@@ -2,15 +2,31 @@
   padding: 120px 0;
   position: relative;
 
-  @include max-screen(1460px) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -36%;
+    right: -28%;
+    opacity: 0.7;
+    z-index: 0;
+    border-radius: 50%;
+    width: 2000px;
+    height: 2000px;
+    background-image: url(../img/noise-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include max-screen(1536px) {
     padding: 100px 0;
   }
 
-  @include max-screen(1366px) {
+  @include max-screen(1400px) {
     padding: 80px 0;
   }
 
-  @include max-screen(1200px) {
+  @include max-screen(1366px) {
     padding: 60px 0;
   }
 
@@ -29,15 +45,15 @@
   &__title {
     margin-bottom: 120px;
 
-    @include max-screen(1460px) {
+    @include max-screen(1536px) {
       margin-bottom: 100px;
     }
 
-    @include max-screen(1366px) {
+    @include max-screen(1400px) {
       margin-bottom: 80px;
     }
 
-    @include max-screen(1200px) {
+    @include max-screen(1366px) {
       margin-bottom: 60px;
     }
 
@@ -52,6 +68,8 @@
   max-width: 880px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 
   &__list {
     list-style: none;
@@ -59,6 +77,10 @@
 
   &__item {
     position: relative;
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
 
     &.is-open {
 
@@ -76,23 +98,33 @@
 
 
         &:after {
-          transform: translate(0, -50%) scale(-1);
+          transform: translate(0, -50%) scale(1);
         }
       }
     }
 
-    // &:after {
-    //   content: '';
-    //   position: absolute;
-    //   left: 0;
-    //   right: 0;
-    //   bottom: -8px;
-    //   background-color: $white;
-    //   height: 8px;
-    // }
-
     &:not(:last-child) {
       margin-bottom: 36px;
+    }
+
+    &:first-child {
+      transition-duration: 0.3s;
+    }
+
+    &:nth-child(2) {
+      transition-duration: 0.6s;
+    }
+
+    &:nth-child(3) {
+      transition-duration: 0.9s;
+    }
+
+    &:nth-child(4) {
+      transition-duration: 1.2s;
+    }
+
+    &:last-child {
+      transition-duration: 1.5s;
     }
   }
 
@@ -119,9 +151,6 @@
     }
 
     &:hover {
-      // border-color: #495fdf;
-      // background-color: #f3f7ff;
-
       &:after {
         opacity: 0.7;
       }
@@ -133,7 +162,7 @@
       background-image: url(../img/icon-arrow.svg);
       right: 40px;
       top: 50%;
-      transform: translate(0, -50%) scale(1);
+      transform: translate(0, -50%) scale(-1);
       width: 56px;
       height: 56px;
       opacity: 1;
@@ -207,6 +236,13 @@
       &:last-child {
         margin: 0;
       }
+    }
+  }
+
+  &.js-animation {
+
+    .accordion-block__item {
+      opacity: 1;
     }
   }
 }

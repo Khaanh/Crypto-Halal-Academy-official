@@ -3,11 +3,50 @@ $(function () {
   $("#js-benefitSlider").slick({
     infinite: true,
     centerMode: true,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     centerPadding: "150px",
     arrows: true,
     dots: false,
+
+    responsive: [
+      {
+        breakpoint: 1536,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "70px",
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerPadding: "70px",
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "70px",
+          arrows: true,
+          dots: false,
+        },
+      },
+    ],
   });
 
   $("#js-feedbackSlider").slick({
@@ -55,6 +94,64 @@ $(function () {
         },
       },
     ],
+  });
+
+  // Animation while scrolling
+  let doAnimation = function doAnimation() {
+    let scrollTop = $(document).scrollTop();
+
+    $(".anim-block").each(function (key, item) {
+      let windowScroll = $(window).height() + scrollTop,
+        elementOffset = $(item).offset().top + 140;
+
+      if (windowScroll >= elementOffset && elementOffset !== undefined) {
+        $(item).addClass("js-animation");
+      }
+    });
+  };
+
+  $(document).on("scroll", function () {
+    doAnimation();
+  });
+
+  // Following Scroll
+  $(".nav > ul > li > a").on("click", function () {
+    let link = $(this);
+    let dest = link.attr("href");
+    let body = document.querySelector("body");
+    let navi = document.querySelector("#js-nav");
+    // let burgerBtn = document.querySelector("#js-burgerBtn");
+
+    if (dest !== undefined && dest !== "") {
+      $("html").animate(
+        {
+          scrollTop: $(dest).offset().top,
+        },
+        100
+      );
+    }
+
+    if (
+      dest !== undefined &&
+      dest !== "" &&
+      body.classList.contains("js-no-scroll") &&
+      navi.classList.contains("is-open")
+      // burgerBtn.classList.contains("_is-active")
+    ) {
+      body.classList.remove("js-no-scroll");
+      navi.classList.remove("is-open");
+      // burgerBtn.classList.remove("_is-active");
+
+      $("html").animate(
+        {
+          scrollTop: $(dest).offset().top,
+        },
+        100
+      );
+      // alert('ads')
+    }
+
+    return false;
   });
 });
 
@@ -119,47 +216,40 @@ let currentTimeElem = document.querySelectorAll(".js-currentTime");
 let isPaused = false;
 // let audio;
 
-function controlAudio() {
-  btnPlay.forEach((item) => {
-    item.addEventListener("click", (e) => {
-      console.log(e);
-      let audio = e.target.parentElement.nextElementSibling;
-      pauseAllAudio();
+window.addEventListener("click", (e) => {
+  pauseAllAudio(audioElem);
+  let currentAudio = e.target.parentElement.nextElementSibling;
+  let btnAudio =
+    currentAudio.previousElementSibling.querySelector(".js-btnPlay");
+  // currentAudio.classList.add("current");
 
-      !isPaused ? playAudio(audio) : pauseAudio(audio);
+  let last = currentAudio;
+  !isPaused ? playAudio(currentAudio, btnAudio) : pauseAudio(last, btnAudio);
+});
 
-      console.log(audio.currentTime);
-    });
-  });
-}
-
-controlAudio();
-
-function pauseAllAudio() {
-  audioElem.forEach((audio) => {
+function pauseAllAudio(arrAudio) {
+  arrAudio.forEach((audio) => {
     audio.pause();
+    console.log("audio", audio);
   });
 }
 
-function playAudio(elem) {
+function playAudio(elem, btn) {
   elem.play();
+  console.log("btn", btn);
+  btn.classList.add("is-active");
+  elem.classList.add("current");
   console.log("play");
   isPaused = true;
 }
 
-function pauseAudio(elem) {
+function pauseAudio(elem, btn) {
   elem.pause();
+  btn.classList.remove("is-active");
+  elem.classList.remove("current");
   console.log("pause");
   isPaused = false;
 }
-
-// audioElem.addEventListener("timeupdate", function (ev) {
-//   console.log("Current time", this.currentTime);
-// });
-
-// currentTimeElem.addEventListener("click", function () {
-//   alert("asdas");
-// });
 
 // Accordion functional
 let accBtn = document.querySelectorAll(".js-accToggle");

@@ -1,27 +1,42 @@
 .profile-section {
   padding: 160px 0 120px;
+  position: relative;
 
-  @include max-screen(1460px) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -32%;
+    opacity: 0.7;
+    z-index: 0;
+    border-radius: 50%;
+    width: 2000px;
+    height: 2000px;
+    background-image: url(../img/noise-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include max-screen(1536px) {
     padding: 140px 0 100px;
   }
 
-  @include max-screen(1366px) {
+  @include max-screen(1400px) {
     padding: 120px 0 80px;
   }
 
-  @include max-screen(1200px) {
+  @include max-screen(1366px) {
     padding: 100px 0 60px;
   }
 
-  @include max-screen(1024px) {
+  @include max-screen(1200px) {
     padding: 60px 0;
   }
 
-  @include max-screen(768px) {
+  @include max-screen(1024px) {
     padding: 40px 0;
   }
-
-  &__container {}
 
   &__title {
     margin-bottom: 64px;
@@ -36,6 +51,11 @@
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s linear, transform 0.5s linear;
 
     @include max-screen(1024px) {
       flex-direction: column;
@@ -132,6 +152,13 @@
 
     @include max-screen(1024px) {
       margin: 0 auto;
+    }
+  }
+
+  &.js-animation {
+    .profile-section__holder {
+      opacity: 1;
+      transform: translateY(0%);
     }
   }
 }

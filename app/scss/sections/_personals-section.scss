@@ -1,34 +1,52 @@
 .personals-section {
   padding: 120px 0;
+  position: relative;
+  z-index: 10;
 
-  @include max-screen(1460px) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -8%;
+    left: -36%;
+    opacity: 0.7;
+    z-index: 0;
+    border-radius: 50%;
+    width: 2000px;
+    height: 2100px;
+    background-image: url(../img/noise-img.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @include max-screen(1536px) {
     padding: 100px 0;
   }
 
-  @include max-screen(1366px) {
+  @include max-screen(1400px) {
     padding: 80px 0;
   }
 
-  @include max-screen(1200px) {
+  @include max-screen(1366px) {
     padding: 60px 0;
   }
 
-  @include max-screen(1024px) {
+  @include max-screen(1200px) {
     padding: 40px 0;
   }
 
   &__title {
     margin-bottom: 120px;
 
-    @include max-screen(1460px) {
+    @include max-screen(1536px) {
       margin-bottom: 100px;
     }
 
-    @include max-screen(1366px) {
+    @include max-screen(1400px) {
       margin-bottom: 80px;
     }
 
-    @include max-screen(1200px) {
+    @include max-screen(1366px) {
       margin-bottom: 60px;
     }
 
@@ -39,11 +57,14 @@
 }
 
 .personal-list {
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   list-style: none;
+  opacity: 0;
+  transition: opacity 0.5s linear;
 
   @include max-screen(768px) {
     flex-direction: column;
@@ -59,6 +80,14 @@
       max-width: 100%;
       margin: 0;
     }
+
+    &:last-child {
+      img {
+        position: absolute;
+        top: 100px;
+        left: 114px;
+      }
+    }
   }
 
   &__img {
@@ -70,6 +99,7 @@
     background-image: url(../img/circle-decor-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 
     @include max-screen(480px) {
       max-width: 320px;
@@ -83,6 +113,7 @@
     img {
       border-radius: 50%;
       overflow: hidden;
+      filter: drop-shadow(0px 0px 40px rgba(12, 177, 88, 0.8));
     }
 
   }
@@ -110,5 +141,9 @@
     @include max-screen(480px) {
       max-width: 100%;
     }
+  }
+
+  &.js-animation {
+    opacity: 1;
   }
 }
