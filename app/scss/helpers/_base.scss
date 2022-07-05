@@ -42,7 +42,6 @@
 	visibility: hidden;
 	pointer-events: none;
 	transform: translateY(100px);
-
 	transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
 
 
@@ -67,6 +66,10 @@
 		transform-origin: center;
 		transition: transform 0.1s linear;
 		fill: $accent;
+
+		@include max-screen(1024px) {
+			transform: rotate(270deg);
+		}
 	}
 
 	&:hover {

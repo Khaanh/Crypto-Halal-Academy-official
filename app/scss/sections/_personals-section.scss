@@ -88,12 +88,20 @@
         left: 114px;
 
         @include max-screen(480px) {
-          top: 80px;
-          left: 80px;
+          top: 96px;
+          left: 96px;
+          width: 120px;
+          height: 120px;
         }
 
-        @include max-screen(320) {
-          left: 74px;
+        @include max-screen(425px) {
+          top: 94px;
+          left: 94px;
+        }
+
+        @include max-screen(320px) {
+          top: 94px;
+          left: 84px;
         }
       }
     }

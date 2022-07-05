@@ -108,13 +108,9 @@
 
   .slick-active {
     opacity: 0.5;
-    // pointer-events: none;
-
-    .audio__btn-play {}
   }
 
   .slick-active.slick-current {
-    // pointer-events: auto;
     opacity: 1;
 
     .audio__btn-play {
@@ -145,6 +141,19 @@
 
     @include max-screen(768px) {
       left: 10%;
+    }
+  }
+
+  .slick-dots {
+    @include max-screen(360px) {
+      bottom: -36px;
+    }
+
+    li {
+      @include max-screen(360px) {
+        width: 6px;
+        height: 6px;
+      }
     }
   }
 
@@ -189,6 +198,7 @@
   &__btn-play {
     display: flex;
     width: 30px;
+    min-width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-right: 32px;
@@ -199,6 +209,10 @@
     background-color: $transp;
     box-shadow: 0px 0px 15px rgba(12, 177, 88, 0.8);
     transition: transform 0.2s linear;
+
+    @include max-screen(480px) {
+      margin-right: 16px;
+    }
 
     &:after,
     &:before {
@@ -220,7 +234,7 @@
     }
 
     &:before {
-      // background-image: url(../img/icon-btn-play.svg);
+      background-image: url(../img/icon-btn-pause.svg);
       opacity: 0;
     }
 
@@ -241,7 +255,7 @@
     height: 30px;
     width: 235px;
     overflow: hidden;
-    background-image: url(../img/icon-track2.svg);
+    background-image: url(../img/icon-track.svg);
     background-repeat: repeat-x;
     background-size: auto;
     position: relative;

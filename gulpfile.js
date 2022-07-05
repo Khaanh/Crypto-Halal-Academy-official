@@ -139,7 +139,7 @@ gulp.task("favicon", function () {
 });
 
 gulp.task("data", function () {
-  return gulp.src("app/data/**/*.+(ogg|mp3)").pipe(gulp.dest("dist/data"));
+  return gulp.src("app/data/**").pipe(gulp.dest("dist/data"));
 });
 
 gulp.task("clean", async function () {
@@ -157,7 +157,8 @@ gulp.task("watch", function () {
   );
   gulp.watch("app/img/**/*", gulp.series("img-min", "svg-min"));
   gulp.watch("app/fonts/**/*.*", gulp.parallel("fonts"));
-  gulp.watch("app/data/**/*.+(ogg|mp3)", gulp.parallel("data"));
+  // gulp.watch("app/data/**/*.+(ogg|mp3)", gulp.parallel("data"));
+  gulp.watch("app/data/**", gulp.parallel("data"));
 });
 
 gulp.task(

@@ -3,39 +3,63 @@ $(function () {
   $("#js-benefitSlider").slick({
     infinite: true,
     centerMode: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    centerPadding: "150px",
+    centerPadding: "50px",
     arrows: true,
     dots: false,
 
     responsive: [
       {
-        breakpoint: 1536,
+        breakpoint: 1538,
         settings: {
           infinite: true,
           centerMode: true,
           slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: "70px",
+          centerPadding: "160px",
           arrows: true,
           dots: false,
         },
       },
       {
-        breakpoint: 1200,
+        breakpoint: 1366,
         settings: {
           infinite: true,
           centerMode: true,
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
-          centerPadding: "70px",
+          centerPadding: "100px",
           arrows: true,
           dots: false,
         },
       },
       {
         breakpoint: 1024,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "100px",
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          infinite: true,
+          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "80px",
+          arrows: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 360,
         settings: {
           infinite: true,
           centerMode: true,
@@ -219,6 +243,7 @@ window.addEventListener("click", (e) => {
   let btnAudio =
     currentAudio.previousElementSibling.querySelector(".js-btnPlay");
 
+  console.log(btnAudio);
   let last = currentAudio;
   !isPaused ? playAudio(currentAudio, btnAudio) : pauseAudio(last, btnAudio);
 });
@@ -226,16 +251,13 @@ window.addEventListener("click", (e) => {
 function pauseAllAudio(arrAudio) {
   arrAudio.forEach((audio) => {
     audio.pause();
-    console.log("audio", audio);
   });
 }
 
 function playAudio(elem, btn) {
   elem.play();
-  console.log("btn", btn);
   btn.classList.add("is-active");
   elem.classList.add("current");
-  console.log("play");
   isPaused = true;
 }
 
@@ -243,7 +265,6 @@ function pauseAudio(elem, btn) {
   elem.pause();
   btn.classList.remove("is-active");
   elem.classList.remove("current");
-  console.log("pause");
   isPaused = false;
 }
 

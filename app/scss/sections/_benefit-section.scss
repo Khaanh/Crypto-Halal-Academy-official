@@ -38,7 +38,13 @@
   }
 }
 
-.slider-holder {}
+.slider-holder {
+  .slick-arrow {
+    @include max-screen(480px) {
+      top: 105%;
+    }
+  }
+}
 
 .slider-list {
   list-style: none;
@@ -53,19 +59,25 @@
     overflow: hidden;
     position: relative;
 
-    width: 330px !important;
+    height: 400px;
+    transition: all 0.3s ease-in-out;
 
-    @include max-screen(1536px) {
-      width: 300px !important;
-    }
-
-    @include max-screen(1200px) {
-      width: 100% !important;
+    @include max-screen(768px) {
+      height: 200px;
     }
   }
 
   &__img {
     width: 100%;
+    height: 100%;
+
+    @include max-screen(768px) {
+      height: auto;
+    }
+
+    @include max-screen(480px) {
+      height: 100%;
+    }
   }
 
   &__subject {
@@ -92,34 +104,64 @@
       font-size: 12px;
       line-height: 14px;
       padding: 6px;
+      min-height: 52px;
     }
   }
 
   .slick-slide {
-    // max-width: 300px;
+    >div {
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+
+      @include max-screen(768px) {
+        max-width: 165px;
+      }
+    }
+  }
+
+  .slick-slide {
     margin: 0 12px;
   }
 
   .slick-center {
-    // max-width: 362px;
-    // width: 100% !important;
     transition: all 0.3s ease-in-out;
     transform-origin: center;
 
     .slider-list__items {
       transition: all 0.1s ease-in-out;
-      height: 486px;
-      max-width: 364px;
       transform-origin: center;
+    }
+  }
 
-      @include max-screen(1024px) {
-        height: auto;
-        max-width: initial;
+  .slick-current.slick-center {
+    >div {
+      max-width: 364px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .slider-list__items {
+      min-height: 490px;
+
+      @include max-screen(768px) {
+        min-height: 270px;
+        max-height: 270px;
+        max-width: 200px;
       }
 
-      @include max-screen(375px) {
-        // transform: scale(1.08);
-        // height: 340px;
+      img {
+        height: 100%;
+
+        @include max-screen(768px) {
+          height: auto;
+        }
+
+        @include max-screen(480px) {
+          height: 100%;
+        }
       }
     }
   }
