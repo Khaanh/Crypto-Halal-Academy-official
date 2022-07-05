@@ -91,6 +91,10 @@
           top: 80px;
           left: 80px;
         }
+
+        @include max-screen(320) {
+          left: 74px;
+        }
       }
     }
   }
