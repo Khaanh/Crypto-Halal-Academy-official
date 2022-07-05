@@ -153,6 +153,10 @@
     @include max-screen(1024px) {
       margin: 0 auto;
     }
+
+    @include max-screen(768px) {
+      height: auto;
+    }
   }
 
   &.js-animation {

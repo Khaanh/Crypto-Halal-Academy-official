@@ -86,6 +86,11 @@
         position: absolute;
         top: 100px;
         left: 114px;
+
+        @include max-screen(480px) {
+          top: 80px;
+          left: 80px;
+        }
       }
     }
   }
