@@ -16,6 +16,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include max-screen(1024px) {
+      display: none;
+    }
   }
 
   @include max-screen(1536px) {
