@@ -65,6 +65,7 @@ $(function () {
           centerMode: false,
           slidesToShow: 2,
           slidesToScroll: 1,
+          centerPadding: "60px",
           infinite: true,
           dots: true,
         },
