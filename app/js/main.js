@@ -120,7 +120,6 @@ $(function () {
     let dest = link.attr("href");
     let body = document.querySelector("body");
     let navi = document.querySelector("#js-nav");
-    // let burgerBtn = document.querySelector("#js-burgerBtn");
 
     if (dest !== undefined && dest !== "") {
       $("html").animate(
@@ -136,11 +135,9 @@ $(function () {
       dest !== "" &&
       body.classList.contains("js-no-scroll") &&
       navi.classList.contains("is-open")
-      // burgerBtn.classList.contains("_is-active")
     ) {
       body.classList.remove("js-no-scroll");
       navi.classList.remove("is-open");
-      // burgerBtn.classList.remove("_is-active");
 
       $("html").animate(
         {
@@ -148,7 +145,6 @@ $(function () {
         },
         100
       );
-      // alert('ads')
     }
 
     return false;
