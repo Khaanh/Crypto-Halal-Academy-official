@@ -217,7 +217,6 @@ window.addEventListener("click", (e) => {
   let currentAudio = e.target.parentElement.nextElementSibling;
   let btnAudio =
     currentAudio.previousElementSibling.querySelector(".js-btnPlay");
-  // currentAudio.classList.add("current");
 
   let last = currentAudio;
   !isPaused ? playAudio(currentAudio, btnAudio) : pauseAudio(last, btnAudio);
