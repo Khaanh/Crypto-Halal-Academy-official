@@ -46,11 +46,10 @@
     &:after {
       transform: translateX(0);
     }
-
-    // background-color: $accent;
   }
 
-  &:focus {
+  &:focus,
+  &:active {
     color: $white;
     background-color: $accent;
   }
