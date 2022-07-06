@@ -12,13 +12,21 @@
     border-radius: 50%;
     width: 2000px;
     height: 2000px;
-    background-image: url(../img/noise-img.png);
+    background-image: url(../img/noise-img-min.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include max-screen(1024px) {
-      display: none;
+    @include max-screen(560px) {
+      background-image: url(../img/noise-img-min-sm.png);
+      width: 510px;
+      height: 900px;
+      background-size: cover;
+      top: -10%;
+      left: 0;
+      z-index: 0;
+      opacity: .3;
+      border-radius: 0;
     }
   }
 
@@ -153,6 +161,8 @@
     overflow: hidden;
     max-width: 483px;
     height: 330px;
+    border: 1px solid $accent;
+    box-shadow: 0px 0px 40px rgba(12, 177, 88, 0.3);
 
     @include max-screen(1024px) {
       margin: 0 auto;

@@ -13,13 +13,19 @@
     border-radius: 50%;
     width: 2000px;
     height: 2000px;
-    background-image: url(../img/noise-img.png);
+    background-image: url(../img/noise-img-min.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include max-screen(1024px) {
-      display: none;
+    @include max-screen(560px) {
+      background-image: url(../img/noise-img-min-sm.png);
+      width: 480px;
+      height: 1200px;
+      opacity: 0.3;
+      border-radius: 0;
+      right: 0;
+      top: 0;
     }
   }
 
@@ -45,6 +51,10 @@
     background-image: url(../img/decor-faq-elem.svg);
     background-repeat: no-repeat;
     background-size: contain;
+
+    @include max-screen(1200px) {
+      display: none;
+    }
   }
 
   &__title {
@@ -145,6 +155,7 @@
     backdrop-filter: blur(10px);
     border-radius: 20px;
     transition: all 0.2 linear;
+    border: none;
 
     @include max-screen(1024px) {
       padding: 30px 28px;

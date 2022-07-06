@@ -11,14 +11,25 @@
     border-radius: 50%;
     width: 1600px;
     height: 1600px;
-    background-image: url(../img/noise-img.png);
+    background-image: url(../img/noise-img-min.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 
-    @include max-screen(1024px) {
-      display: none;
+    @include max-screen(1200px) {
+      background-image: url(../img/noise-img-min-sm.png);
     }
+
+    @include max-screen(560px) {
+      width: 480px;
+      height: 600px;
+      background-size: cover;
+      top: 50%;
+      left: 0;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
   }
 
   @include max-screen(1536px) {

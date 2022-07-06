@@ -13,13 +13,19 @@
     border-radius: 50%;
     width: 2000px;
     height: 2100px;
-    background-image: url(../img/noise-img.png);
+    background-image: url(../img/noise-img-min.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @include max-screen(1024px) {
-      display: none;
+    @include max-screen(560px) {
+      background-image: url(../img/noise-img-min-sm.png);
+      width: 480px;
+      height: 1300px;
+      border-radius: 0;
+      opacity: 0.3;
+      top: 10%;
+      left: 0;
     }
   }
 
