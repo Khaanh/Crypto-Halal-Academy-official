@@ -242,10 +242,18 @@ window.addEventListener("click", (e) => {
   let currentAudio = e.target.parentElement.nextElementSibling;
   let btnAudio =
     currentAudio.previousElementSibling.querySelector(".js-btnPlay");
+  let trackAnim =
+    currentAudio.previousElementSibling.querySelector(".js-currentTime");
 
-  console.log(btnAudio);
+  // const minutes = Math.floor(currentAudio.duration / 60);
+  // const seconds = currentAudio.duration % 60;
+  // const result = `${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
+
+  // console.log("result", result);
   let last = currentAudio;
-  !isPaused ? playAudio(currentAudio, btnAudio) : pauseAudio(last, btnAudio);
+  !isPaused
+    ? playAudio(currentAudio, btnAudio, trackAnim)
+    : pauseAudio(last, btnAudio, trackAnim);
 });
 
 function pauseAllAudio(arrAudio) {
@@ -254,17 +262,23 @@ function pauseAllAudio(arrAudio) {
   });
 }
 
-function playAudio(elem, btn) {
+// function padTo2Digits(num) {
+//   return num.toString().padStart(2, "0");
+// }
+
+function playAudio(elem, btn, anim) {
   elem.play();
   btn.classList.add("is-active");
-  elem.classList.add("current");
+  anim.classList.add("is-playing");
+  // elem.classList.add("current1");
   isPaused = true;
 }
 
-function pauseAudio(elem, btn) {
+function pauseAudio(elem, btn, anim) {
   elem.pause();
   btn.classList.remove("is-active");
-  elem.classList.remove("current");
+  anim.classList.remove("is-playing");
+  // elem.classList.remove("current1");
   isPaused = false;
 }
 

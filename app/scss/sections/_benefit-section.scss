@@ -154,6 +154,7 @@
 
       img {
         height: 100%;
+        width: 100%;
 
         @include max-screen(768px) {
           height: auto;
