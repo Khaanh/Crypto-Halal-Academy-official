@@ -203,7 +203,6 @@
     border-radius: 50%;
     margin-right: 32px;
     border: none;
-    // cursor: pointer;
     transform: scale(1);
     transform-origin: center;
     background-color: $transp;
@@ -258,9 +257,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-image: url(../img/icon-track.svg);
-    background-repeat: repeat-x;
-    background-size: auto;
     position: relative;
     cursor: pointer;
 
@@ -277,7 +273,6 @@
       width: 2px;
       margin: 0px 3px;
       border-radius: 30px;
-      // animation: sound 0ms -600ms linear infinite alternate;
 
       &:first-child {
         animation-duration: 474ms;
