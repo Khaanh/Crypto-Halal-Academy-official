@@ -1,43 +1,9 @@
 // ----------- jQuery functions -----------
 $(function () {
+  // Optimize audio
   $("#js-feedbackSlider").on("init", function (event, slick) {
-    console.log("initialized");
-    // Optimize  Audio
-    // let audioTrigger = document.querySelector("[data-id]");
-
-    // const options = {
-    //   root: audioTrigger,
-    //   threshold: 0.1,
-    // };
-
-    // let observerAudio = new IntersectionObserver((entries, observer) => {
-    //   entries.forEach((entry) => {
-    //     if (entry.isIntersecting) {
-    //       const elem = entry.target;
-
-    //       // let src = elem.getAttribute("data-src");
-    //       console.log("elem", elem);
-
-    //       audioElem.forEach((record) => {
-    //         let dataSrc = record
-    //           .querySelector("source")
-    //           .getAttribute("data-src");
-    //         // record.querySelector("source").setAttribute("src", null);
-    //         record.querySelector("source").setAttribute("src", dataSrc);
-    //         console.log("record", record);
-    //       });
-    //     }
-    //   }, options);
-    // });
-    // audioElem.forEach((mp3) => {
-    //   observerAudio.observe(mp3);
-    // });
-
     document.querySelectorAll(".js-audio").forEach((item) => {
       let dataSrc = item.querySelector("source").getAttribute("data-src");
-      console.log("dataSrc", dataSrc);
-      console.log("item", item);
-
       item.querySelector("source").setAttribute("src", dataSrc);
     });
   });
