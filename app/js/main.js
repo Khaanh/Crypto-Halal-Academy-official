@@ -1,5 +1,47 @@
 // ----------- jQuery functions -----------
 $(function () {
+  $("#js-feedbackSlider").on("init", function (event, slick) {
+    console.log("initialized");
+    // Optimize  Audio
+    // let audioTrigger = document.querySelector("[data-id]");
+
+    // const options = {
+    //   root: audioTrigger,
+    //   threshold: 0.1,
+    // };
+
+    // let observerAudio = new IntersectionObserver((entries, observer) => {
+    //   entries.forEach((entry) => {
+    //     if (entry.isIntersecting) {
+    //       const elem = entry.target;
+
+    //       // let src = elem.getAttribute("data-src");
+    //       console.log("elem", elem);
+
+    //       audioElem.forEach((record) => {
+    //         let dataSrc = record
+    //           .querySelector("source")
+    //           .getAttribute("data-src");
+    //         // record.querySelector("source").setAttribute("src", null);
+    //         record.querySelector("source").setAttribute("src", dataSrc);
+    //         console.log("record", record);
+    //       });
+    //     }
+    //   }, options);
+    // });
+    // audioElem.forEach((mp3) => {
+    //   observerAudio.observe(mp3);
+    // });
+
+    document.querySelectorAll(".js-audio").forEach((item) => {
+      let dataSrc = item.querySelector("source").getAttribute("data-src");
+      console.log("dataSrc", dataSrc);
+      console.log("item", item);
+
+      item.querySelector("source").setAttribute("src", dataSrc);
+    });
+  });
+
   $("#js-benefitSlider").slick({
     infinite: true,
     centerMode: true,
@@ -177,7 +219,7 @@ $(function () {
 });
 
 //----------- JavaScript functions -----------
-//Common variables
+// Common variables
 const defaultOffset = 200;
 
 // Smooth scroll to top
@@ -192,7 +234,7 @@ function scrollToUp() {
 }
 scrollToUp();
 
-//Check window position
+// Check window position
 const header = document.querySelector("#js-header");
 function checkWindowPos() {
   window.addEventListener("scroll", () => {
@@ -235,21 +277,15 @@ let btnPlay = document.querySelectorAll(".js-btnPlay");
 let audioElem = document.querySelectorAll(".js-audio");
 let currentTimeElem = document.querySelectorAll(".js-currentTime");
 let isPaused = false;
-// let audio;
 
-window.addEventListener("click", (e) => {
+document.addEventListener("click", (e) => {
   pauseAllAudio(audioElem);
   let currentAudio = e.target.parentElement.nextElementSibling;
+  console.log("currentAudio", currentAudio);
   let btnAudio =
     currentAudio.previousElementSibling.querySelector(".js-btnPlay");
   let trackAnim =
     currentAudio.previousElementSibling.querySelector(".js-currentTime");
-
-  // const minutes = Math.floor(currentAudio.duration / 60);
-  // const seconds = currentAudio.duration % 60;
-  // const result = `${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
-
-  // console.log("result", result);
   let last = currentAudio;
   !isPaused
     ? playAudio(currentAudio, btnAudio, trackAnim)
@@ -262,15 +298,10 @@ function pauseAllAudio(arrAudio) {
   });
 }
 
-// function padTo2Digits(num) {
-//   return num.toString().padStart(2, "0");
-// }
-
 function playAudio(elem, btn, anim) {
   elem.play();
   btn.classList.add("is-active");
   anim.classList.add("is-playing");
-  // elem.classList.add("current1");
   isPaused = true;
 }
 
@@ -278,7 +309,6 @@ function pauseAudio(elem, btn, anim) {
   elem.pause();
   btn.classList.remove("is-active");
   anim.classList.remove("is-playing");
-  // elem.classList.remove("current1");
   isPaused = false;
 }
 
@@ -290,7 +320,7 @@ accBtn.forEach((item) => {
   });
 });
 
-//Mobile menu
+// Mobile menu
 window.addEventListener("resize", dynamicWidthCheck);
 document.addEventListener("DOMContentLoaded", dynamicWidthCheck);
 

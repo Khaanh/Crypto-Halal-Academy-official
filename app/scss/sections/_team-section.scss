@@ -194,6 +194,12 @@
       }
     }
 
+    &.member-sixth {
+      .team-section__thumb img {
+        object-fit: cover;
+      }
+    }
+
   }
 
   &__thumb {
