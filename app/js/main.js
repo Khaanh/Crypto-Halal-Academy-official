@@ -1,13 +1,5 @@
 // ----------- jQuery functions -----------
 $(function () {
-  // Optimize audio
-  $("#js-feedbackSlider").on("init", function (event, slick) {
-    document.querySelectorAll(".js-audio").forEach((item) => {
-      let dataSrc = item.querySelector("source").getAttribute("data-src");
-      item.querySelector("source").setAttribute("src", dataSrc);
-    });
-  });
-
   $("#js-benefitSlider").slick({
     infinite: true,
     centerMode: true,
@@ -81,52 +73,15 @@ $(function () {
     ],
   });
 
-  $("#js-feedbackSlider").slick({
-    infinite: true,
-    centerMode: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerPadding: "0px",
-    arrows: true,
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          infinite: true,
-          centerMode: false,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerPadding: "60px",
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          infinite: true,
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "60px",
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          infinite: true,
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "30px",
-          infinite: true,
-          dots: true,
-        },
-      },
-    ],
+  let script = document.createElement("script");
+  script.setAttribute("src", "js/libs/slider-audio.min.js");
+
+  window.addEventListener("scroll", function () {
+    let offset = this.window.pageYOffset;
+    console.log(offset);
+    if (offset > 2000) {
+      document.body.appendChild(script);
+    }
   });
 
   // Animation while scrolling
